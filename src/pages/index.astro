@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const projects = [
+const heroProjects = [
 	{ n: '001', name: 'RK Tile & Stone', kind: 'Trades · Client Build', img: '/images/rk-tile-stone.webp' },
 	{ n: '002', name: 'HouzME', kind: 'PropTech · Showcase Build', img: '/images/houzme.webp' },
 	{ n: '003', name: 'Football Predictor', kind: 'Data Engineering · R&D', img: '/images/football-predictor.webp' },
@@ -14,10 +14,107 @@ const stats = [
 ];
 
 const navLinks = ['Work', 'Capabilities', 'Process', 'Results', 'Pricing', 'Contact'];
+
+const projects = [
+	{
+		num: '001 · Client Build · 2025',
+		name: 'RK Tile & Stone',
+		tags: ['Trades', 'Construction'],
+		img: '/images/rk-tile-stone.webp',
+		desc: 'A portfolio-led website for an established tile and stone contractor — built so prospective clients can see the quality of work before they pick up the phone. Loads instantly on mobile, works on every device, and makes it easy to enquire.',
+		href: 'https://kevm-dev.github.io/rk-tile-stone/',
+	},
+	{
+		num: '002 · Showcase Build · 2024',
+		name: 'HouzME',
+		tags: ['PropTech', 'Web App'],
+		img: '/images/houzme.webp',
+		desc: 'A showcase build for a student-landlord rental platform — featuring swipe-style property discovery and a landlord management dashboard. Demonstrates how a fully interactive web app can be delivered without expensive back-end infrastructure.',
+		href: 'https://kevm-dev.github.io/houzme-demo/',
+	},
+	{
+		num: '003 · In-House R&D · 2025',
+		name: 'Football Predictor',
+		tags: ['R&D', 'Data Engineering'],
+		img: '/images/football-predictor.webp',
+		desc: 'An in-house research build to keep my engineering edge sharp — a real-time sports analytics tool pulling live data from a public API and running statistical models to forecast match outcomes. Shows the depth of technical work that goes into every client site.',
+		href: 'https://mkfootball.onrender.com/',
+	},
+];
+
+const capabilities = [
+	{ n: '01', title: 'A Site That Turns Visitors Into Customers', body: 'Hand-coded for speed and clarity, so visitors pick up the phone or fill out the form. No bloated templates getting in the way of an enquiry.' },
+	{ n: '02', title: 'Works Perfectly on Every Device', body: "Tested on real iPhones, Androids, tablets and laptops — not just in a browser window. Smooth whether your customer's on the train, at home, or at a desk." },
+	{ n: '03', title: 'Found First on Google in Your Area', body: 'Built from the ground up to rank in local searches. Clean code, fast page-loads and structured content — the technical foundations Google rewards. So locals find you, not your competitor.' },
+	{ n: '04', title: 'Live in 10–30 Days, Quality Guaranteed', body: 'Fixed 10–30 day delivery windows you can plan around, with a dedicated quality-control week before launch — security, performance and device testing all signed off.' },
+	{ n: '05', title: 'Always Online for Your Customers', body: '99.9% uptime hosting with proactive security monitoring. Your site stays online, fast and secure — so you never lose a customer to a page that won’t load.' },
+	{ n: '06', title: 'Take Payments Directly On Your Site', body: 'Sell products, take bookings, or accept deposits — Stripe (or your preferred processor) built straight in. No clunky plugins, no platform fees eating into your margin.' },
+];
+
+const processSteps = [
+	{ marker: '01', title: 'Discovery Call', body: 'We talk through your business and what the site needs to do. You leave with a written plan — fixed price, launch date, agreed scope.' },
+	{ marker: '02', title: 'Design Preview in 72 Hours', body: 'A clickable preview lands in your inbox in three days. Changes happen here, before they get expensive.' },
+	{ marker: '03', title: 'Build, Test, Launch', body: 'I build, then spend a full week stress-testing — every page, every device, every form. Live bulletproof on day 21.' },
+];
+
+const bignums = [
+	{ n: '21', suf: '-Day', l: 'Brief to launch — fixed timeline, written into the contract.' },
+	{ n: '99.9', suf: '%', l: 'Uptime guarantee — your site is online when your customers need it.' },
+	{ n: '72', suf: 'hr', l: 'Working design preview before the build — no last-minute surprises.' },
+	{ n: '24', suf: 'hr', l: 'Response to every enquiry, with a written scope and fixed price.' },
+];
+
+const claims = [
+	{ kicker: 'Built From Scratch', body: 'Every line of code is mine. No templates, no page builders, no plugin bloat. Your site is yours — fast, focused, and built around your business.' },
+	{ kicker: 'You Own Everything', body: 'Fixed price, one-off build. You keep full ownership of the code, the content, and the hosting account. No platform lock-in, no monthly licence fees.' },
+	{ kicker: 'Direct Line To Me', body: "You're never passed to a junior or a project manager. From first email to launch day, I'm the only person building your site — and the only person you talk to." },
+];
+
+const tiers = [
+	{
+		kind: 'I · One-off build', name: 'Starter Site', price: '450', featured: false,
+		body: "A single-page website that's fast, professional, and ready to bring in enquiries. Perfect for tradesmen, freelancers, and one-service businesses ready to look serious online.",
+		features: [
+			{ text: 'Single-page design', on: true },
+			{ text: 'Contact form & enquiry capture', on: true },
+			{ text: 'Works perfectly on every device', on: true },
+			{ text: 'Hosting setup & domain pointed', on: true },
+			{ text: 'Live in 10–14 days', on: true },
+			{ text: 'Multi-page structure', on: false },
+			{ text: 'Local-SEO foundations', on: false },
+		],
+	},
+	{
+		kind: 'II · One-off build', name: 'Standard Site', price: '950', featured: true,
+		body: 'A complete multi-page website built to win local search and convert more visitors. Ideal for established businesses with a few services or a portfolio to show off.',
+		features: [
+			{ text: 'Multi-page structure', on: true },
+			{ text: 'Contact form & enquiry capture', on: true },
+			{ text: 'Works perfectly on every device', on: true },
+			{ text: 'Hosting setup & domain pointed', on: true },
+			{ text: 'Live in 21 days (full QA cycle)', on: true },
+			{ text: 'Photo gallery / portfolio', on: true },
+			{ text: 'Local-SEO foundations', on: true },
+		],
+	},
+	{
+		kind: 'III · One-off build', name: 'Premium Site', price: '1,850', featured: false,
+		body: 'A fully-featured site with payments, bookings, or custom functionality. For businesses ready to take orders, sell products, or automate their workflow online.',
+		features: [
+			{ text: 'Up to 15 pages', on: true },
+			{ text: 'Contact form & enquiry capture', on: true },
+			{ text: 'Works perfectly on every device', on: true },
+			{ text: 'Hosting setup & domain pointed', on: true },
+			{ text: 'Live in 30 days (extended QA)', on: true },
+			{ text: 'Take payments / bookings online', on: true },
+			{ text: '90 days of post-launch support', on: true },
+		],
+	},
+];
 ---
 
 <Layout title="Kevin Labs — Custom-Coded Websites for Local Businesses">
-	<header class="flex items-center justify-between px-6 sm:px-10 py-6">
+	<header class="flex items-center justify-between px-6 sm:px-10 py-6 sticky top-0 bg-bg/90 backdrop-blur z-10">
 		<a href="/" class="flex items-center gap-2 font-semibold text-ink">
 			<span class="h-2.5 w-2.5 rounded-full bg-accent"></span>
 			Kevin Labs
@@ -30,6 +127,7 @@ const navLinks = ['Work', 'Capabilities', 'Process', 'Results', 'Pricing', 'Cont
 	</header>
 
 	<main class="flex-1">
+		<!-- §01 INTRODUCTION -->
 		<section class="px-6 sm:px-10 py-12 sm:py-20">
 			<div class="grid lg:grid-cols-[1.2fr_1fr] gap-12 max-w-6xl mx-auto">
 				<div>
@@ -82,7 +180,7 @@ const navLinks = ['Work', 'Capabilities', 'Process', 'Results', 'Pricing', 'Cont
 						<span>2024 — 2026</span>
 					</div>
 					<div class="flex flex-col gap-3">
-						{projects.map((project) => (
+						{heroProjects.map((project) => (
 							<a href="#work" class="flex items-center gap-3 rounded-xl p-2 hover:bg-surface transition-colors">
 								<span class="text-xs text-ink-3 w-8">{project.n}</span>
 								<div class="flex-1">
@@ -95,6 +193,232 @@ const navLinks = ['Work', 'Capabilities', 'Process', 'Results', 'Pricing', 'Cont
 					</div>
 				</aside>
 			</div>
+		</section>
+
+		<!-- §02 WORK -->
+		<section id="work" class="px-6 sm:px-10 py-16 sm:py-24 bg-paper">
+			<div class="max-w-6xl mx-auto">
+				<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
+					<div>
+						<div class="text-xs font-mono uppercase tracking-wider text-accent mb-2">§02 — Portfolio</div>
+						<h2 class="font-serif text-4xl">Deployed Projects.</h2>
+					</div>
+					<p class="text-ink-2 max-w-sm">A selection of recent builds — each hand-coded from scratch. No templates, no page builders, no platform lock-in.</p>
+				</div>
+
+				<div class="grid md:grid-cols-3 gap-6">
+					{projects.map((project) => (
+						<a href={project.href} target="_blank" rel="noopener" class="group flex flex-col bg-bg rounded-2xl overflow-hidden border border-ink/10 hover:border-accent transition-colors">
+							<div class="aspect-video overflow-hidden">
+								<img src={project.img} alt={project.name} loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+							</div>
+							<div class="p-5 flex flex-col flex-1">
+								<span class="text-xs text-ink-3 mb-2">{project.num}</span>
+								<div class="flex gap-2 mb-3">
+									{project.tags.map((tag) => (
+										<span class="text-xs bg-surface rounded-full px-2.5 py-1">{tag}</span>
+									))}
+								</div>
+								<h3 class="font-serif text-xl mb-2">{project.name}</h3>
+								<p class="text-sm text-ink-2 flex-1">{project.desc}</p>
+								<span class="text-sm font-medium text-accent mt-4">View Live Site →</span>
+							</div>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- §03 CAPABILITIES -->
+		<section id="capabilities" class="px-6 sm:px-10 py-16 sm:py-24">
+			<div class="max-w-6xl mx-auto">
+				<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
+					<div>
+						<div class="text-xs font-mono uppercase tracking-wider text-accent mb-2">§03 — What You Get</div>
+						<h2 class="font-serif text-4xl max-w-lg">Everything your business needs in one site.</h2>
+					</div>
+					<p class="text-ink-2 max-w-sm">A complete web system, hand-built end-to-end. Made for business owners, not designers — every feature earns its place.</p>
+				</div>
+
+				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+					{capabilities.map((cap) => (
+						<div class="bg-paper border border-ink/10 rounded-2xl p-6">
+							<div class="text-xs font-mono text-ink-3 mb-3">{cap.n}</div>
+							<h3 class="font-serif text-xl mb-2">{cap.title}</h3>
+							<p class="text-sm text-ink-2">{cap.body}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- §04 PROCESS -->
+		<section id="process" class="px-6 sm:px-10 py-16 sm:py-24 bg-paper">
+			<div class="max-w-6xl mx-auto text-center">
+				<div class="text-xs font-mono uppercase tracking-wider text-accent mb-2">§04 — How It Works</div>
+				<h2 class="font-serif text-4xl mb-4">Brief to launch in <em class="italic text-accent">21 days.</em></h2>
+				<p class="text-ink-2 max-w-2xl mx-auto mb-12">A clear three-stage process so you always know exactly where your project is. The 21-day timeline isn't a waiting period — it's the quality-control window that keeps your site from launching broken.</p>
+
+				<img src="/images/process-21day-cycle.webp" alt="Workspace with project brief, design preview and live site across devices" loading="lazy" class="w-full rounded-2xl mb-12 object-cover aspect-[24/9]" />
+
+				<div class="grid md:grid-cols-3 gap-6 text-left mb-12">
+					{processSteps.map((step) => (
+						<div class="bg-bg border border-ink/10 rounded-2xl p-6">
+							<div class="font-serif text-3xl text-accent mb-3">{step.marker}</div>
+							<h3 class="font-serif text-xl mb-2">{step.title}</h3>
+							<p class="text-sm text-ink-2">{step.body}</p>
+						</div>
+					))}
+				</div>
+
+				<div class="bg-bg border border-ink/10 rounded-2xl p-8 text-left flex gap-4">
+					<div class="font-serif text-5xl text-accent leading-none">&ldquo;</div>
+					<div>
+						<span class="block font-medium mb-2">My Quality Commitment</span>
+						<p class="text-sm text-ink-2">Every build is treated as a live business system, not a design project — a full week of security, performance and device testing before launch. Software-company engineering, applied to a business website.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- §05 RESULTS -->
+		<section id="results" class="px-6 sm:px-10 py-16 sm:py-24">
+			<div class="max-w-6xl mx-auto">
+				<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
+					<div>
+						<div class="text-xs font-mono uppercase tracking-wider text-accent mb-2">§05 — Why Work With Me</div>
+						<h2 class="font-serif text-4xl max-w-lg">What you get when you hire <em class="italic text-accent">an engineer</em>, not an agency.</h2>
+					</div>
+					<p class="text-ink-2 max-w-sm">Every number on this page is a written commitment. I'm not an agency with overhead and account managers — I'm one Computer Science graduate building your site personally, with the technical standards of a software company.</p>
+				</div>
+
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+					{bignums.map((stat) => (
+						<div>
+							<div class="font-serif text-4xl">{stat.n}<span class="text-2xl text-accent">{stat.suf}</span></div>
+							<p class="text-sm text-ink-2 mt-2">{stat.l}</p>
+						</div>
+					))}
+				</div>
+
+				<img src="/images/results-shop-online.webp" alt="How a website helps a local UK shop: visibility, 24/7 access, credibility, more customers" loading="lazy" class="w-full rounded-2xl mb-12 object-cover aspect-[21/9]" />
+
+				<div class="grid md:grid-cols-3 gap-6">
+					{claims.map((claim) => (
+						<div>
+							<div class="text-xs font-mono uppercase tracking-wider text-accent mb-2">{claim.kicker}</div>
+							<p class="text-sm text-ink-2">{claim.body}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- §06 PRICING -->
+		<section id="pricing" class="px-6 sm:px-10 py-16 sm:py-24 bg-paper">
+			<div class="max-w-6xl mx-auto text-center">
+				<div class="text-xs font-mono uppercase tracking-wider text-accent mb-2">§06 — Pricing</div>
+				<h2 class="font-serif text-4xl mb-4">Fixed price. <em class="italic text-accent">No surprises.</em></h2>
+				<p class="text-ink-2 max-w-2xl mx-auto mb-12">Choose the package that fits your business. Final price is agreed in writing before any work begins — there are no hidden costs, no scope creep, and you own everything when it's done.</p>
+
+				<div class="grid md:grid-cols-3 gap-6 text-left">
+					{tiers.map((tier) => (
+						<div class:list={["rounded-2xl p-6 border flex flex-col", tier.featured ? "bg-ink text-paper border-ink" : "bg-bg border-ink/10"]}>
+							{tier.featured && <span class="text-xs font-medium bg-accent text-paper rounded-full px-3 py-1 self-start mb-3">Most Popular</span>}
+							<span class:list={["text-xs", tier.featured ? "text-paper/60" : "text-ink-3"]}>{tier.kind}</span>
+							<h3 class="font-serif text-2xl mt-1 mb-3">{tier.name}</h3>
+							<div class="mb-4">
+								<span class:list={["text-xs", tier.featured ? "text-paper/60" : "text-ink-3"]}>From</span>
+								<span class="font-serif text-4xl ml-2">£{tier.price}</span>
+							</div>
+							<p class:list={["text-sm mb-5", tier.featured ? "text-paper/80" : "text-ink-2"]}>{tier.body}</p>
+							<ul class="text-sm flex flex-col gap-2 mb-6 flex-1">
+								{tier.features.map((feature) => (
+									<li class:list={["flex gap-2", !feature.on && (tier.featured ? "text-paper/40" : "text-ink-3")]}>
+										<span>{feature.on ? '✓' : '·'}</span>
+										{feature.text}
+									</li>
+								))}
+							</ul>
+							<a href="#contact" class:list={["inline-flex items-center justify-center px-5 py-3 rounded-full text-sm font-medium transition-colors", tier.featured ? "bg-accent hover:bg-accent-2" : "border border-ink/20 hover:border-accent hover:text-accent"]}>Start My Project</a>
+						</div>
+					))}
+				</div>
+
+				<p class="text-sm text-ink-3 mt-10">
+					<a href="https://kevwebdesign.com/care-plans.html" class="text-accent hover:underline">Maintenance retainers from £45/month</a> · Domain &amp; hosting from £50/year · Not sure which package fits? <a href="#contact" class="text-accent hover:underline">Send a brief</a> and I'll recommend the right one.
+				</p>
+			</div>
+		</section>
+
+		<!-- §07 CONTACT -->
+		<section id="contact" class="px-6 sm:px-10 py-16 sm:py-24">
+			<div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+				<div>
+					<div class="text-xs font-mono uppercase tracking-wider text-accent mb-2">§07 — Get In Touch</div>
+					<h2 class="font-serif text-4xl mb-4">Let's <em class="italic text-accent">build it.</em></h2>
+					<p class="font-medium mb-3">Free discovery call. No obligation. Most websites live within 21 days of the brief being signed off.</p>
+					<p class="text-ink-2 mb-8">Send me a few lines about your business — I'll reply within 24 hours with a written scope, a fixed price, and a launch date. If we're a good fit, we book the discovery call from there.</p>
+
+					<div class="flex items-center gap-4 bg-paper border border-ink/10 rounded-2xl p-4 mb-8">
+						<a href="https://www.linkedin.com/in/kevin-mushengezi-048604242" target="_blank" rel="noopener noreferrer" class="shrink-0">
+							<img src="/images/kevin-portrait.webp" alt="Kevin Mushengezi" class="h-14 w-14 rounded-full object-cover" />
+						</a>
+						<div>
+							<span class="block text-xs text-ink-3">Founder · Engineer</span>
+							<a href="https://www.linkedin.com/in/kevin-mushengezi-048604242" target="_blank" rel="noopener noreferrer" class="block font-medium hover:text-accent">Kevin M.</a>
+							<span class="block text-xs text-ink-2">Every brief lands in my inbox. Every line of code is mine.</span>
+						</div>
+					</div>
+
+					<div class="flex flex-col gap-3 text-sm">
+						<a href="mailto:Kevin@kevwebdesign.com" class="flex items-center gap-2 hover:text-accent">Kevin@kevwebdesign.com →</a>
+						<a href="https://wa.me/" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-accent">WhatsApp Me →</a>
+					</div>
+				</div>
+
+				<form class="bg-paper border border-ink/10 rounded-2xl p-6 flex flex-col gap-4" action="https://formspree.io/f/mkoyvzpe" method="POST" accept-charset="UTF-8">
+					<div class="font-serif text-2xl">Send A Brief</div>
+					<p class="text-sm text-ink-2 -mt-2">Tell me a little about your business. I'll reply within 24 hours.</p>
+					<input type="hidden" name="_subject" value="New project brief — Kevin Labs" />
+
+					<div class="grid sm:grid-cols-2 gap-4">
+						<div class="flex flex-col gap-1">
+							<label class="text-sm font-medium" for="name">Your Name <span class="text-accent">*</span></label>
+							<input id="name" type="text" name="name" placeholder="Jane Smith" required autocomplete="name" class="border border-ink/20 rounded-lg px-3 py-2 bg-bg" />
+						</div>
+						<div class="flex flex-col gap-1">
+							<label class="text-sm font-medium" for="email">Email Address <span class="text-accent">*</span></label>
+							<input id="email" type="email" name="email" placeholder="jane@example.co.uk" required autocomplete="email" class="border border-ink/20 rounded-lg px-3 py-2 bg-bg" />
+						</div>
+					</div>
+
+					<div class="flex flex-col gap-1">
+						<label class="text-sm font-medium" for="industry">Industry Sector</label>
+						<select id="industry" name="industry" class="border border-ink/20 rounded-lg px-3 py-2 bg-bg">
+							<option value="" disabled selected>Select your industry</option>
+							<option>Trades &amp; Construction</option>
+							<option>Healthcare &amp; Wellness</option>
+							<option>Retail &amp; E-commerce</option>
+							<option>Food &amp; Hospitality</option>
+							<option>Professional Services</option>
+							<option>Other</option>
+						</select>
+					</div>
+
+					<div class="flex flex-col gap-1">
+						<label class="text-sm font-medium" for="message">What Do You Need? <span class="text-accent">*</span></label>
+						<textarea id="message" name="message" rows="4" placeholder="A few lines about your business, what you're selling, and roughly what you'd like the site to do. Don't worry about getting it perfect — we'll refine it on the call." required class="border border-ink/20 rounded-lg px-3 py-2 bg-bg"></textarea>
+					</div>
+
+					<button type="submit" class="inline-flex items-center justify-center gap-2 bg-ink text-paper px-5 py-3 rounded-full text-sm font-medium hover:bg-accent transition-colors">
+						Send My Brief →
+					</button>
+					<p class="text-xs text-ink-3">You'll hear from me within 24 hours with a written scope, fixed price, and proposed launch date.</p>
+				</form>
+			</div>
+
+			<p class="text-center text-xs text-ink-3 mt-16">Kevin Labs © 2026 · kevwebdesign.com</p>
 		</section>
 	</main>
 </Layout>
