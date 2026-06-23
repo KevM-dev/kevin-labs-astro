@@ -15,7 +15,109 @@
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-ink);
+  overflow-x: hidden;
+}
+
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+/* Ambient background blobs, behind all content */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ambient-bg .blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+.ambient-bg .blob-1 {
+  width: 44vmax;
+  height: 44vmax;
+  background: radial-gradient(
+    circle at 35% 35%,
+    #e88560 0%,
+    #c4532b 40%,
+    transparent 70%
+  );
+  top: -14vmax;
+  right: -12vmax;
+  opacity: 0.16;
+}
+.ambient-bg .blob-2 {
+  width: 40vmax;
+  height: 40vmax;
+  background: radial-gradient(circle at 40% 40%, #f6c8a3, transparent 70%);
+  bottom: -16vmax;
+  left: -12vmax;
+  opacity: 0.22;
+}
+
+main,
+header,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Scroll-reveal — only hides content once JS confirms it can animate it back in.
+   Without .js-reveal (JS disabled, IntersectionObserver unsupported, crawler/bot),
+   [data-reveal] content stays fully visible by default. */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.js-reveal [data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile menu */
+#mobileMenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+#mobileMenu.is-open {
+  max-height: 24rem;
+}
+
+input,
+textarea,
+select {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 18%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js-reveal [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

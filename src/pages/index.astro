@@ -9,12 +9,6 @@ const heroProjects = [
 	{ n: '003', name: 'Football Predictor', kind: 'Data Engineering · R&D', img: `${base}images/football-predictor.webp` },
 ];
 
-const stats = [
-	{ num: '21-Day', lab: 'From Brief to Launch' },
-	{ num: '£450', lab: 'Starter Site · From' },
-	{ num: 'Free', lab: 'Discovery Call' },
-];
-
 const navLinks = ['Work', 'Capabilities', 'Process', 'Results', 'Pricing', 'Contact'];
 
 const projects = [
@@ -126,7 +120,23 @@ const tiers = [
 				<a href={`#${link.toLowerCase()}`} class="hover:text-accent transition-colors">{link}</a>
 			))}
 		</nav>
+		<button
+			id="menuToggle"
+			class="md:hidden flex flex-col gap-1.5 p-2"
+			aria-label="Open menu"
+			aria-expanded="false"
+			aria-controls="mobileMenu"
+		>
+			<span class="block h-0.5 w-6 bg-ink"></span>
+			<span class="block h-0.5 w-6 bg-ink"></span>
+		</button>
 	</header>
+
+	<nav id="mobileMenu" class="md:hidden relative z-10 px-6 flex flex-col text-sm" aria-label="Mobile section navigation">
+		{navLinks.map((link) => (
+			<a href={`#${link.toLowerCase()}`} class="py-3 border-b border-ink/10 text-ink-2 hover:text-accent transition-colors">{link}</a>
+		))}
+	</nav>
 
 	<main class="flex-1">
 		<!-- §01 INTRODUCTION -->
@@ -167,12 +177,18 @@ const tiers = [
 					</div>
 
 					<div class="grid grid-cols-3 gap-6 max-w-md">
-						{stats.map((stat) => (
-							<div>
-								<div class="font-serif text-3xl text-ink">{stat.num}</div>
-								<div class="text-xs text-ink-3 mt-1">{stat.lab}</div>
-							</div>
-						))}
+						<div>
+							<div class="font-serif text-3xl text-ink"><span data-count="21">21</span>-Day</div>
+							<div class="text-xs text-ink-3 mt-1">From Brief to Launch</div>
+						</div>
+						<div>
+							<div class="font-serif text-3xl text-ink">£<span data-count="450">450</span></div>
+							<div class="text-xs text-ink-3 mt-1">Starter Site · From</div>
+						</div>
+						<div>
+							<div class="font-serif text-3xl text-ink">Free</div>
+							<div class="text-xs text-ink-3 mt-1">Discovery Call</div>
+						</div>
 					</div>
 				</div>
 
@@ -183,7 +199,7 @@ const tiers = [
 					</div>
 					<div class="flex flex-col gap-3">
 						{heroProjects.map((project) => (
-							<a href="#work" class="flex items-center gap-3 rounded-xl p-2 hover:bg-surface transition-colors">
+							<a href="#work" class="flex items-center gap-3 rounded-xl p-2 hover:bg-surface hover:-translate-y-0.5 transition-all">
 								<span class="text-xs text-ink-3 w-8">{project.n}</span>
 								<div class="flex-1">
 									<div class="font-medium text-sm">{project.name}</div>
@@ -200,7 +216,7 @@ const tiers = [
 		<!-- §02 WORK -->
 		<section id="work" class="px-6 sm:px-10 py-16 sm:py-24 bg-paper">
 			<div class="max-w-6xl mx-auto">
-				<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
+				<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12" data-reveal>
 					<div>
 						<div class="text-xs font-mono uppercase tracking-wider text-accent mb-2">§02 — Portfolio</div>
 						<h2 class="font-serif text-4xl">Deployed Projects.</h2>
@@ -210,7 +226,13 @@ const tiers = [
 
 				<div class="grid md:grid-cols-3 gap-6">
 					{projects.map((project) => (
-						<a href={project.href} target="_blank" rel="noopener" class="group flex flex-col bg-bg rounded-2xl overflow-hidden border border-ink/10 hover:border-accent transition-colors">
+						<a
+							href={project.href}
+							target="_blank"
+							rel="noopener"
+							class="group flex flex-col bg-bg rounded-2xl overflow-hidden border border-ink/10 hover:border-accent hover:-translate-y-1 hover:shadow-xl hover:shadow-ink/5 transition-all duration-300"
+							data-reveal
+						>
 							<div class="aspect-video overflow-hidden">
 								<img src={project.img} alt={project.name} loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
 							</div>
@@ -223,7 +245,9 @@ const tiers = [
 								</div>
 								<h3 class="font-serif text-xl mb-2">{project.name}</h3>
 								<p class="text-sm text-ink-2 flex-1">{project.desc}</p>
-								<span class="text-sm font-medium text-accent mt-4">View Live Site →</span>
+								<span class="text-sm font-medium text-accent mt-4 inline-flex items-center gap-1">
+									View Live Site <span class="transition-transform group-hover:translate-x-1">→</span>
+								</span>
 							</div>
 						</a>
 					))}
@@ -234,7 +258,7 @@ const tiers = [
 		<!-- §03 CAPABILITIES -->
 		<section id="capabilities" class="px-6 sm:px-10 py-16 sm:py-24">
 			<div class="max-w-6xl mx-auto">
-				<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
+				<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12" data-reveal>
 					<div>
 						<div class="text-xs font-mono uppercase tracking-wider text-accent mb-2">§03 — What You Get</div>
 						<h2 class="font-serif text-4xl max-w-lg">Everything your business needs in one site.</h2>
@@ -244,7 +268,10 @@ const tiers = [
 
 				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 					{capabilities.map((cap) => (
-						<div class="bg-paper border border-ink/10 rounded-2xl p-6">
+						<div
+							class="bg-paper border border-ink/10 rounded-2xl p-6 hover:border-accent hover:-translate-y-1 transition-all duration-300"
+							data-reveal
+						>
 							<div class="text-xs font-mono text-ink-3 mb-3">{cap.n}</div>
 							<h3 class="font-serif text-xl mb-2">{cap.title}</h3>
 							<p class="text-sm text-ink-2">{cap.body}</p>
@@ -257,15 +284,18 @@ const tiers = [
 		<!-- §04 PROCESS -->
 		<section id="process" class="px-6 sm:px-10 py-16 sm:py-24 bg-paper">
 			<div class="max-w-6xl mx-auto text-center">
-				<div class="text-xs font-mono uppercase tracking-wider text-accent mb-2">§04 — How It Works</div>
-				<h2 class="font-serif text-4xl mb-4">Brief to launch in <em class="italic text-accent">21 days.</em></h2>
-				<p class="text-ink-2 max-w-2xl mx-auto mb-12">A clear three-stage process so you always know exactly where your project is. The 21-day timeline isn't a waiting period — it's the quality-control window that keeps your site from launching broken.</p>
+				<div class="text-xs font-mono uppercase tracking-wider text-accent mb-2" data-reveal>§04 — How It Works</div>
+				<h2 class="font-serif text-4xl mb-4" data-reveal>Brief to launch in <em class="italic text-accent">21 days.</em></h2>
+				<p class="text-ink-2 max-w-2xl mx-auto mb-12" data-reveal>A clear three-stage process so you always know exactly where your project is. The 21-day timeline isn't a waiting period — it's the quality-control window that keeps your site from launching broken.</p>
 
-				<img src={`${base}images/process-21day-cycle.webp`} alt="Workspace with project brief, design preview and live site across devices" loading="lazy" class="w-full rounded-2xl mb-12 object-cover aspect-[24/9]" />
+				<img src={`${base}images/process-21day-cycle.webp`} alt="Workspace with project brief, design preview and live site across devices" loading="lazy" class="w-full rounded-2xl mb-12 object-cover aspect-[24/9]" data-reveal />
 
 				<div class="grid md:grid-cols-3 gap-6 text-left mb-12">
 					{processSteps.map((step) => (
-						<div class="bg-bg border border-ink/10 rounded-2xl p-6">
+						<div
+							class="bg-bg border border-ink/10 rounded-2xl p-6 hover:border-accent hover:-translate-y-1 transition-all duration-300"
+							data-reveal
+						>
 							<div class="font-serif text-3xl text-accent mb-3">{step.marker}</div>
 							<h3 class="font-serif text-xl mb-2">{step.title}</h3>
 							<p class="text-sm text-ink-2">{step.body}</p>
@@ -273,7 +303,7 @@ const tiers = [
 					))}
 				</div>
 
-				<div class="bg-bg border border-ink/10 rounded-2xl p-8 text-left flex gap-4">
+				<div class="bg-bg border border-ink/10 rounded-2xl p-8 text-left flex gap-4" data-reveal>
 					<div class="font-serif text-5xl text-accent leading-none">&ldquo;</div>
 					<div>
 						<span class="block font-medium mb-2">My Quality Commitment</span>
@@ -286,7 +316,7 @@ const tiers = [
 		<!-- §05 RESULTS -->
 		<section id="results" class="px-6 sm:px-10 py-16 sm:py-24">
 			<div class="max-w-6xl mx-auto">
-				<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
+				<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12" data-reveal>
 					<div>
 						<div class="text-xs font-mono uppercase tracking-wider text-accent mb-2">§05 — Why Work With Me</div>
 						<h2 class="font-serif text-4xl max-w-lg">What you get when you hire <em class="italic text-accent">an engineer</em>, not an agency.</h2>
@@ -296,18 +326,20 @@ const tiers = [
 
 				<div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
 					{bignums.map((stat) => (
-						<div>
-							<div class="font-serif text-4xl">{stat.n}<span class="text-2xl text-accent">{stat.suf}</span></div>
+						<div data-reveal>
+							<div class="font-serif text-4xl">
+								<span data-count={stat.n}>{stat.n}</span><span class="text-2xl text-accent">{stat.suf}</span>
+							</div>
 							<p class="text-sm text-ink-2 mt-2">{stat.l}</p>
 						</div>
 					))}
 				</div>
 
-				<img src={`${base}images/results-shop-online.webp`} alt="How a website helps a local UK shop: visibility, 24/7 access, credibility, more customers" loading="lazy" class="w-full rounded-2xl mb-12 object-cover aspect-[21/9]" />
+				<img src={`${base}images/results-shop-online.webp`} alt="How a website helps a local UK shop: visibility, 24/7 access, credibility, more customers" loading="lazy" class="w-full rounded-2xl mb-12 object-cover aspect-[21/9]" data-reveal />
 
 				<div class="grid md:grid-cols-3 gap-6">
 					{claims.map((claim) => (
-						<div>
+						<div data-reveal>
 							<div class="text-xs font-mono uppercase tracking-wider text-accent mb-2">{claim.kicker}</div>
 							<p class="text-sm text-ink-2">{claim.body}</p>
 						</div>
@@ -325,7 +357,13 @@ const tiers = [
 
 				<div class="grid md:grid-cols-3 gap-6 text-left">
 					{tiers.map((tier) => (
-						<div class:list={["rounded-2xl p-6 border flex flex-col", tier.featured ? "bg-ink text-paper border-ink" : "bg-bg border-ink/10"]}>
+						<div
+							class:list={[
+								"rounded-2xl p-6 border flex flex-col transition-all duration-300 hover:-translate-y-1",
+								tier.featured ? "bg-ink text-paper border-ink hover:shadow-xl hover:shadow-ink/20" : "bg-bg border-ink/10 hover:border-accent",
+							]}
+							data-reveal
+						>
 							{tier.featured && <span class="text-xs font-medium bg-accent text-paper rounded-full px-3 py-1 self-start mb-3">Most Popular</span>}
 							<span class:list={["text-xs", tier.featured ? "text-paper/60" : "text-ink-3"]}>{tier.kind}</span>
 							<h3 class="font-serif text-2xl mt-1 mb-3">{tier.name}</h3>
@@ -356,7 +394,7 @@ const tiers = [
 		<!-- §07 CONTACT -->
 		<section id="contact" class="px-6 sm:px-10 py-16 sm:py-24">
 			<div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-				<div>
+				<div data-reveal>
 					<div class="text-xs font-mono uppercase tracking-wider text-accent mb-2">§07 — Get In Touch</div>
 					<h2 class="font-serif text-4xl mb-4">Let's <em class="italic text-accent">build it.</em></h2>
 					<p class="font-medium mb-3">Free discovery call. No obligation. Most websites live within 21 days of the brief being signed off.</p>
@@ -379,7 +417,7 @@ const tiers = [
 					</div>
 				</div>
 
-				<form class="bg-paper border border-ink/10 rounded-2xl p-6 flex flex-col gap-4" action="https://formspree.io/f/mkoyvzpe" method="POST" accept-charset="UTF-8">
+				<form class="bg-paper border border-ink/10 rounded-2xl p-6 flex flex-col gap-4" action="https://formspree.io/f/mkoyvzpe" method="POST" accept-charset="UTF-8" data-reveal>
 					<div class="font-serif text-2xl">Send A Brief</div>
 					<p class="text-sm text-ink-2 -mt-2">Tell me a little about your business. I'll reply within 24 hours.</p>
 					<input type="hidden" name="_subject" value="New project brief — Kevin Labs" />
