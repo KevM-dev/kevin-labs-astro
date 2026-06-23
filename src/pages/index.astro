@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+
 const heroProjects = [
-	{ n: '001', name: 'RK Tile & Stone', kind: 'Trades · Client Build', img: '/images/rk-tile-stone.webp' },
-	{ n: '002', name: 'HouzME', kind: 'PropTech · Showcase Build', img: '/images/houzme.webp' },
-	{ n: '003', name: 'Football Predictor', kind: 'Data Engineering · R&D', img: '/images/football-predictor.webp' },
+	{ n: '001', name: 'RK Tile & Stone', kind: 'Trades · Client Build', img: `${base}images/rk-tile-stone.webp` },
+	{ n: '002', name: 'HouzME', kind: 'PropTech · Showcase Build', img: `${base}images/houzme.webp` },
+	{ n: '003', name: 'Football Predictor', kind: 'Data Engineering · R&D', img: `${base}images/football-predictor.webp` },
 ];
 
 const stats = [
@@ -20,7 +22,7 @@ const projects = [
 		num: '001 · Client Build · 2025',
 		name: 'RK Tile & Stone',
 		tags: ['Trades', 'Construction'],
-		img: '/images/rk-tile-stone.webp',
+		img: `${base}images/rk-tile-stone.webp`,
 		desc: 'A portfolio-led website for an established tile and stone contractor — built so prospective clients can see the quality of work before they pick up the phone. Loads instantly on mobile, works on every device, and makes it easy to enquire.',
 		href: 'https://kevm-dev.github.io/rk-tile-stone/',
 	},
@@ -28,7 +30,7 @@ const projects = [
 		num: '002 · Showcase Build · 2024',
 		name: 'HouzME',
 		tags: ['PropTech', 'Web App'],
-		img: '/images/houzme.webp',
+		img: `${base}images/houzme.webp`,
 		desc: 'A showcase build for a student-landlord rental platform — featuring swipe-style property discovery and a landlord management dashboard. Demonstrates how a fully interactive web app can be delivered without expensive back-end infrastructure.',
 		href: 'https://kevm-dev.github.io/houzme-demo/',
 	},
@@ -36,7 +38,7 @@ const projects = [
 		num: '003 · In-House R&D · 2025',
 		name: 'Football Predictor',
 		tags: ['R&D', 'Data Engineering'],
-		img: '/images/football-predictor.webp',
+		img: `${base}images/football-predictor.webp`,
 		desc: 'An in-house research build to keep my engineering edge sharp — a real-time sports analytics tool pulling live data from a public API and running statistical models to forecast match outcomes. Shows the depth of technical work that goes into every client site.',
 		href: 'https://mkfootball.onrender.com/',
 	},
@@ -115,7 +117,7 @@ const tiers = [
 
 <Layout title="Kevin Labs — Custom-Coded Websites for Local Businesses">
 	<header class="flex items-center justify-between px-6 sm:px-10 py-6 sticky top-0 bg-bg/90 backdrop-blur z-10">
-		<a href="/" class="flex items-center gap-2 font-semibold text-ink">
+		<a href={base} class="flex items-center gap-2 font-semibold text-ink">
 			<span class="h-2.5 w-2.5 rounded-full bg-accent"></span>
 			Kevin Labs
 		</a>
@@ -259,7 +261,7 @@ const tiers = [
 				<h2 class="font-serif text-4xl mb-4">Brief to launch in <em class="italic text-accent">21 days.</em></h2>
 				<p class="text-ink-2 max-w-2xl mx-auto mb-12">A clear three-stage process so you always know exactly where your project is. The 21-day timeline isn't a waiting period — it's the quality-control window that keeps your site from launching broken.</p>
 
-				<img src="/images/process-21day-cycle.webp" alt="Workspace with project brief, design preview and live site across devices" loading="lazy" class="w-full rounded-2xl mb-12 object-cover aspect-[24/9]" />
+				<img src={`${base}images/process-21day-cycle.webp`} alt="Workspace with project brief, design preview and live site across devices" loading="lazy" class="w-full rounded-2xl mb-12 object-cover aspect-[24/9]" />
 
 				<div class="grid md:grid-cols-3 gap-6 text-left mb-12">
 					{processSteps.map((step) => (
@@ -301,7 +303,7 @@ const tiers = [
 					))}
 				</div>
 
-				<img src="/images/results-shop-online.webp" alt="How a website helps a local UK shop: visibility, 24/7 access, credibility, more customers" loading="lazy" class="w-full rounded-2xl mb-12 object-cover aspect-[21/9]" />
+				<img src={`${base}images/results-shop-online.webp`} alt="How a website helps a local UK shop: visibility, 24/7 access, credibility, more customers" loading="lazy" class="w-full rounded-2xl mb-12 object-cover aspect-[21/9]" />
 
 				<div class="grid md:grid-cols-3 gap-6">
 					{claims.map((claim) => (
@@ -362,7 +364,7 @@ const tiers = [
 
 					<div class="flex items-center gap-4 bg-paper border border-ink/10 rounded-2xl p-4 mb-8">
 						<a href="https://www.linkedin.com/in/kevin-mushengezi-048604242" target="_blank" rel="noopener noreferrer" class="shrink-0">
-							<img src="/images/kevin-portrait.webp" alt="Kevin Mushengezi" class="h-14 w-14 rounded-full object-cover" />
+							<img src={`${base}images/kevin-portrait.webp`} alt="Kevin Mushengezi" class="h-14 w-14 rounded-full object-cover" />
 						</a>
 						<div>
 							<span class="block text-xs text-ink-3">Founder · Engineer</span>
