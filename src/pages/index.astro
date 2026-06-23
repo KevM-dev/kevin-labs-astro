@@ -1,14 +1,100 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const projects = [
+	{ n: '001', name: 'RK Tile & Stone', kind: 'Trades · Client Build', img: '/images/rk-tile-stone.webp' },
+	{ n: '002', name: 'HouzME', kind: 'PropTech · Showcase Build', img: '/images/houzme.webp' },
+	{ n: '003', name: 'Football Predictor', kind: 'Data Engineering · R&D', img: '/images/football-predictor.webp' },
+];
+
+const stats = [
+	{ num: '21-Day', lab: 'From Brief to Launch' },
+	{ num: '£450', lab: 'Starter Site · From' },
+	{ num: 'Free', lab: 'Discovery Call' },
+];
+
+const navLinks = ['Work', 'Capabilities', 'Process', 'Results', 'Pricing', 'Contact'];
 ---
 
-<Layout title="Kevin Labs">
-	<main class="flex-1 flex items-center justify-center px-6">
-		<div class="text-center max-w-xl">
-			<h1 class="text-4xl font-bold tracking-tight">Kevin Labs</h1>
-			<p class="mt-4 text-slate-600">
-				Astro + Tailwind scaffold — ready to migrate content from the live site.
-			</p>
-		</div>
+<Layout title="Kevin Labs — Custom-Coded Websites for Local Businesses">
+	<header class="flex items-center justify-between px-6 sm:px-10 py-6">
+		<a href="/" class="flex items-center gap-2 font-semibold text-ink">
+			<span class="h-2.5 w-2.5 rounded-full bg-accent"></span>
+			Kevin Labs
+		</a>
+		<nav class="hidden md:flex gap-8 text-sm text-ink-2" aria-label="Section navigation">
+			{navLinks.map((link) => (
+				<a href={`#${link.toLowerCase()}`} class="hover:text-accent transition-colors">{link}</a>
+			))}
+		</nav>
+	</header>
+
+	<main class="flex-1">
+		<section class="px-6 sm:px-10 py-12 sm:py-20">
+			<div class="grid lg:grid-cols-[1.2fr_1fr] gap-12 max-w-6xl mx-auto">
+				<div>
+					<div class="inline-flex items-center gap-2 rounded-full bg-accent/10 text-accent text-xs font-medium px-3 py-1.5 mb-6">
+						<span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+						Computer Science Graduate · Building websites for UK business owners
+					</div>
+
+					<h1 class="font-serif text-5xl sm:text-6xl leading-tight mb-6">
+						Websites engineered to<br />
+						win you <em class="italic text-accent">more customers.</em>
+					</h1>
+
+					<p class="text-ink-2 text-lg max-w-md mb-8">
+						Hand-coded websites for serious business owners who are done with slow, templated sites. Live in 21 days. Fixed price. UK-based.
+					</p>
+
+					<div class="flex flex-wrap gap-4 mb-8">
+						<a href="#work" class="inline-flex items-center gap-2 bg-ink text-paper px-5 py-3 rounded-full text-sm font-medium hover:bg-accent transition-colors">
+							View Recent Projects →
+						</a>
+						<a href="#contact" class="inline-flex items-center px-5 py-3 rounded-full text-sm font-medium border border-ink/20 hover:border-accent hover:text-accent transition-colors">
+							Get a Free Quote
+						</a>
+					</div>
+
+					<div class="flex flex-wrap gap-x-3 gap-y-1 text-sm text-ink-3 mb-10">
+						<span>Built for UK business owners</span>
+						<span>·</span>
+						<span>21-day delivery</span>
+						<span>·</span>
+						<span>Fixed price</span>
+						<span>·</span>
+						<span>UK-based</span>
+					</div>
+
+					<div class="grid grid-cols-3 gap-6 max-w-md">
+						{stats.map((stat) => (
+							<div>
+								<div class="font-serif text-3xl text-ink">{stat.num}</div>
+								<div class="text-xs text-ink-3 mt-1">{stat.lab}</div>
+							</div>
+						))}
+					</div>
+				</div>
+
+				<aside class="bg-paper border border-ink/10 rounded-2xl p-5">
+					<div class="flex items-center justify-between text-xs text-ink-3 mb-4">
+						<span>Project Index</span>
+						<span>2024 — 2026</span>
+					</div>
+					<div class="flex flex-col gap-3">
+						{projects.map((project) => (
+							<a href="#work" class="flex items-center gap-3 rounded-xl p-2 hover:bg-surface transition-colors">
+								<span class="text-xs text-ink-3 w-8">{project.n}</span>
+								<div class="flex-1">
+									<div class="font-medium text-sm">{project.name}</div>
+									<div class="text-xs text-ink-3">{project.kind}</div>
+								</div>
+								<img src={project.img} alt="" loading="lazy" class="h-12 w-16 object-cover rounded-lg" />
+							</a>
+						))}
+					</div>
+				</aside>
+			</div>
+		</section>
 	</main>
 </Layout>
