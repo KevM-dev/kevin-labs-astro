@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# visual QA review artefacts
+visual-qa-screenshots/
